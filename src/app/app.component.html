@@ -1,1 +1,68 @@
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Link</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <button class="btn btn-light" type="button" *ngIf="loggedHospitalData.hospitalId!=0" (click)="showLogin()"  >{{loggedHospitalData.hospitalEmailId}}</button>
+          <button class="btn btn-success" type="button" *ngIf="loggedHospitalData.hospitalId!=0" (click)="logOut()" >Log Out</button>
+          <button class="btn btn-primary" type="button" *ngIf="loggedHospitalData.hospitalId==0" (click)="showLogin()" >Login</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
 <router-outlet></router-outlet>
+
+
+<!-- The Modal -->
+<div class="modal" id="loginModel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Login</h4>
+          <button type="button" class="btn-close" (click)="hideLogin()" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+         <div class="row">
+            <div class="col-12">
+                <label for="">User Name</label>
+                <input type="text" [(ngModel)]="userObj.userName" id="fff" class="form-control">
+            </div>
+            <div class="col-12">
+                <label for="">Password </label>
+                <input type="password" [(ngModel)]="userObj.password" id="ggg" class="form-control">
+            </div>
+         </div>
+            
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="hideLogin()">Close</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="onLogin()">Login</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
